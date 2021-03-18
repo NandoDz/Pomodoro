@@ -1,6 +1,6 @@
-import React, {useState} from "react"
-import useInterval from "../utils/useInterval";
-import {minutesToDuration,secondsToDuration} from "../utils/duration"
+import React from "react"
+
+import {secondsToDuration} from "../utils/duration"
 
 export default function Focus({focusTime,setFocusTime,isTimerRunning}){
 
@@ -8,7 +8,7 @@ export default function Focus({focusTime,setFocusTime,isTimerRunning}){
 
 
     const handleClick=(value)=>{
-        if(value != "-"){
+        if(value !== "-"){
         setFocusTime(focusTime => focusTime - 300) 
             if(focusTime <= 300){
                 setFocusTime(300)
@@ -29,7 +29,7 @@ export default function Focus({focusTime,setFocusTime,isTimerRunning}){
         <div className="input-group input-group-lg mb-2">
           <span className="input-group-text" data-testid="duration-focus">
             {/* TODO: Update this text to display the current focus session duration */}
-            Focus Duration: {minutesToDuration(focusTime/60)}
+            Focus Duration: {secondsToDuration(focusTime)}
           </span>
           <div className="input-group-append">
             {/* TODO: Implement decreasing focus duration and disable during a focus or break session */}

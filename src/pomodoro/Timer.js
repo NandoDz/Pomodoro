@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {minutesToDuration,secondsToDuration} from "../utils/duration"
+import React from 'react'
+import {secondsToDuration} from "../utils/duration"
 
 
 export default function Timer({display, focusTime,countUp,breakTime,countDown}){

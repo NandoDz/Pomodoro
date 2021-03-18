@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classNames from "../utils/class-names";
 import useInterval from "../utils/useInterval";
 import Break from "./Break";
 import Focus from "./Focus.js";
@@ -23,13 +22,14 @@ function Pomodoro() {
       // ToDo: Implement what should happen when the timer is running
       if (countUp < focusTime) {
         setCountUp((countUp) => countUp + 1);
-        if(countUp == (focusTime - 1)){
+        if(countUp === (focusTime - 1)){
           new Audio(`https://bigsoundbank.com/UPLOAD/mp3/1482.mp3`).play();
         }
       }
       if(countUp >= focusTime){
         setCountDown((countDown)=> countDown + 1)
-        if(countDown == (breakTime)){
+        if(countDown === (breakTime)){
+          new Audio(`https://bigsoundbank.com/UPLOAD/mp3/1482.mp3`).play();
           setCountUp(0)
         }
       }
