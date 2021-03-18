@@ -13,6 +13,7 @@ function Pomodoro() {
   const [countUp, setCountUp] = useState(0);
   const [countDown,setCountDown] = useState(0);
   const [display,setDisplay] = useState(false)
+  const [pause,setPause] = useState(null)
  
 
 
@@ -21,6 +22,7 @@ function Pomodoro() {
     () => {
       // ToDo: Implement what should happen when the timer is running
       if (countUp < focusTime) {
+        
         setCountUp((countUp) => countUp + 1);
         if(countUp === (focusTime - 1)){
           new Audio(`https://bigsoundbank.com/UPLOAD/mp3/1482.mp3`).play();
@@ -76,6 +78,7 @@ function Pomodoro() {
               setCountDown={setCountDown}
               display={display}
               setDisplay={setDisplay}
+              setPause={setPause}
             />
         </div>
       </div>
@@ -93,6 +96,8 @@ function Pomodoro() {
         display={display}
         setDisplay={setDisplay}
         percent={(countUp/focusTime)*100}
+        pause={pause}
+        setPause={setPause}
       />
       
     

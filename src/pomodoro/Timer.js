@@ -2,9 +2,11 @@ import React from 'react'
 import {secondsToDuration} from "../utils/duration"
 
 
-export default function Timer({display, focusTime,countUp,breakTime,countDown}){
+export default function Timer({pause,display, focusTime,countUp,breakTime,countDown,isTimerRunning,setPause}){
 
-
+  if(isTimerRunning){
+    setPause(false)
+  }
     
     
     return (
@@ -26,7 +28,7 @@ export default function Timer({display, focusTime,countUp,breakTime,countDown}){
             <p className="lead" data-testid="session-sub-title">
               {display ? `${secondsToDuration(focusTime - countUp)} remaining` : ""}
             </p>
-            <h2>{!display ? "" : "Paused"}</h2>
+            <h2>{!pause ? "" : "Paused"}</h2>
           </div>
         </div>
         {countUp < focusTime ? (

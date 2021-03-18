@@ -2,13 +2,14 @@ import React from "react"
 import classNames from "../utils/class-names";
 
 
-export default function PlayStop({setCountDown,setDisplay,setCountUp,setBreakTime,setFocusTime,isTimerRunning,setIsTimerRunning}){
+export default function PlayStop({setPause,setCountDown,setDisplay,setCountUp,setBreakTime,setFocusTime,isTimerRunning,setIsTimerRunning}){
 
     
 
     function playPause() {
             setIsTimerRunning((prevState) => !prevState)
             setDisplay(true)
+            setPause((prevState)=> !prevState)
       }
 
 
